@@ -1,5 +1,4 @@
-from PIL import Image
-from PIL import ImageFilter
+from PIL import Image, ImageFilter, ImageEnhance
 
 def red(r=0,image="frog.jpg"):
     newimagedata=[]
@@ -66,16 +65,25 @@ def dark(r=0,g=0,b=0,image="frog.jpg"):
     return newimage
 
 
-
-
-
-def user_input():
-    value = eval(input("Blur Amount: "))
-    return value
-
-
 def blur(mod_img):
+    value = eval(input("Blur Amount: "))
     new_img = (mod_img.convert('RGB'))
-    for i in range(user_input()):
+    for i in range(value):
         new_img = new_img.filter(ImageFilter.BLUR)
     return new_img
+
+
+def sharpness(image):
+    enhancer = ImageEnhance.Sharpness(image.convert('RGB'))
+    value = eval(input("Sharpness Amount: "))
+    return enhancer.enhance(value)
+
+
+def contrast(image):
+    enhancer = ImageEnhance.Contrast(image.convert('RGB'))
+    value = eval(input("Contrast Amount: "))
+    return enhancer.enhance(value)
+
+
+def bw(image):
+    return image.convert("L")

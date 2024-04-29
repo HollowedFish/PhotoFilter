@@ -12,10 +12,23 @@ def valid_name(image_name):
     return False
 
 
+def valid_open_name(image_name):
+    if image_name.find(".png") != -1:
+        return True
+    if image_name.find(".jpg") != -1:
+        return True
+    if image_name.find(".jpeg") != -1:
+        return True
+    if image_name.find(".gif") != -1:
+        return True
+    return False
+
+
 def get_file_path():
     Tk().withdraw()
+    print("Please select a valid file, png, jpg, jpeg, or gif")
     filename = askopenfilename()
-    if valid_name(filename) is not True:
+    if valid_open_name(filename) is not True:
         print("Please select a valid file")
         filename = askopenfilename()
     return filename
@@ -67,7 +80,7 @@ def join_filter(image, cropped_image, values):
 
 
 def choose_filter():
-    filters = ["blur", "red", "blue", "green", "purple", "yellow", "light", "dark"]
+    filters = ["blur", "red", "blue", "green", "purple", "yellow", "light", "dark", "sharpness", "contrast", "BW"]
     for (i, filt) in enumerate(filters):
         print("Type " + str(i) + " for " + str(filt))
     choice = eval(input())
@@ -91,8 +104,14 @@ def apply_filter(choice, image):
         return fl.light(image)
     elif choice == 7:
         return fl.dark(image)
+    elif choice == 8:
+        return fl.sharpness(image)
+    elif choice == 9:
+        return fl.contrast(image)
+    elif choice == 10:
+        return fl.bw(image)
     else:
-        print("Selection results in identical image.")
+        print("Selection results in an identical image.")
         return image
 
 
