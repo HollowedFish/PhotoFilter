@@ -83,32 +83,32 @@ def choose_filter():
     filters = ["blur", "red", "blue", "green", "purple", "yellow", "light", "dark", "sharpness", "contrast", "BW"]
     for (i, filt) in enumerate(filters):
         print("Type " + str(i) + " for " + str(filt))
-    choice = eval(input())
+    choice = input()
     return choice
 
 
 def apply_filter(choice, image):
-    if choice == 0:
+    if choice == '0':
         return fl.blur(image)
-    elif choice == 1:
+    elif choice == '1':
         return fl.red(image)
-    elif choice == 2:
+    elif choice == '2':
         return fl.blue(image)
-    elif choice == 3:
+    elif choice == '3':
         return fl.green(image)
-    elif choice == 4:
+    elif choice == '4':
         return fl.purple(image)
-    elif choice == 5:
+    elif choice == '5':
         return fl.yellow(image)
-    elif choice == 6:
+    elif choice == '6':
         return fl.light(image)
-    elif choice == 7:
+    elif choice == '7':
         return fl.dark(image)
-    elif choice == 8:
+    elif choice == '8':
         return fl.sharpness(image)
-    elif choice == 9:
+    elif choice == '9':
         return fl.contrast(image)
-    elif choice == 10:
+    elif choice == '10':
         return fl.bw(image)
     else:
         print("Selection results in an identical image.")
