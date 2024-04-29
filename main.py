@@ -3,10 +3,11 @@ from tkinter import Tk
 from tkinter.filedialog import askopenfilename
 import filters as fl
 
+
 def valid_name(image_name):
-    found = image_name.find(".png")
-    found = image_name.find(".gif")
-    if found != 0:
+    if image_name.find(".png") != -1:
+        return True
+    if image_name.find(".gif") != -1:
         return True
     return False
 
@@ -57,8 +58,10 @@ def join_filter(image, cropped_image, values):
     image = image.convert('RGB')
     image.paste(cropped_image, values)
     image_name = input("Enter name for new image INCLUDING format i.e \"photo.png\" (.png, .gif)")
-    while valid_name(image_name) is not True:
+    is_valid = valid_name(image_name)
+    while is_valid is False:
         image_name = input("Names must include file format at the end, please try again.")
+        is_valid = valid_name(image_name)
     image.save(image_name)
     return image
 
