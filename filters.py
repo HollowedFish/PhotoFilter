@@ -1,4 +1,6 @@
-from PIL import Image, ImageFilter, ImageEnhance
+from PIL import ImageFilter, ImageEnhance
+
+
 def red(image):
     image.convert('RGB')
     width, height = image.size
@@ -7,6 +9,8 @@ def red(image):
             r, g, b = image.getpixel((x, y))
             image.putpixel((x, y), (r, 0, 0))
     return image
+
+
 def blue(image):
     image.convert('RGB')
     width, height = image.size
@@ -15,6 +19,8 @@ def blue(image):
             r, g, b = image.getpixel((x, y))
             image.putpixel((x, y), (0, 0, b))
     return image
+
+
 def green(image):
     image.convert('RGB')
     width, height = image.size
@@ -23,6 +29,8 @@ def green(image):
             r, g, b = image.getpixel((x, y))
             image.putpixel((x, y), (0, g, 0))
     return image
+
+
 def purple(image):
     image.convert('RGB')
     width, height = image.size
@@ -34,6 +42,8 @@ def purple(image):
             b = b*.94
             image.putpixel((x, y), (r, g, b))
     return image
+
+
 def yellow(image):
     image.convert('RGB')
     width, height = image.size
@@ -70,6 +80,7 @@ def dark(image):
             b = b + darker
             image.putpixel((x, y), (r, g, b))
     return image
+
 
 def blur(mod_img):
     value = eval(input("Blur Amount: "))
