@@ -15,7 +15,7 @@ def valid_name(image_name):
 def valid_open_name(image_name):
     if image_name.find(".png") != -1:
         return True
-    if image_name.find(".JPG") != -1:
+    if image_name.find(".jpg") != -1:
         return True
     if image_name.find(".jpeg") != -1:
         return True

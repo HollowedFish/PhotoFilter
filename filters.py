@@ -4,7 +4,7 @@ def red(image):
     width, height = image.size
     for x in range(width):
         for y in range(height):
-            cord1, cord2, r, g, b = image.getpixel((x, y), (red, green, blue))
+            r, g, b = image.getpixel((x, y))
             image.putpixel((x, y), (r, 0, 0))
     return image
 def blue(image):
@@ -12,7 +12,7 @@ def blue(image):
     width, height = image.size
     for x in range(width):
         for y in range(height):
-            cord1, cord2, r, g, b = image.getpixel((x, y), (red, green, blue))
+            r, g, b = image.getpixel((x, y))
             image.putpixel((x, y), (0, 0, b))
     return image
 def green(image):
@@ -20,7 +20,7 @@ def green(image):
     width, height = image.size
     for x in range(width):
         for y in range(height):
-            cord1, cord2, r, g, b = image.getpixel((x, y), (red, green, blue))
+            r, g, b = image.getpixel((x, y))
             image.putpixel((x, y), (0, g, 0))
     return image
 def purple(image):
@@ -50,7 +50,7 @@ def light(image):
     lighter = int(input("How much lighter would you like it (Enter number):"))
     for x in range(width):
         for y in range(height):
-            cord1, cord2, r, g, b = image.getpixel((x, y), (red, green, blue))
+            r, g, b = image.getpixel((x, y))
             r = r-lighter
             g = g-lighter
             b = b-lighter
@@ -64,7 +64,7 @@ def dark(image):
     darker = int(input("How much lighter would you like it (Enter number):"))
     for x in range(width):
         for y in range(height):
-            cord1, cord2, r, g, b = image.getpixel((x, y), (red, green, blue))
+            r, g, b = image.getpixel((x, y))
             r = r + darker
             g = g + darker
             b = b + darker
