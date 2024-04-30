@@ -5,7 +5,7 @@ from tkinter.filedialog import askopenfilename
 
 def valid_name(image_name):
     found = image_name.find(".png")
-    found = image_name.find(".jpg")
+    found = image_name.find(".JPG")
     found = image_name.find(".gif")
     found = image_name.find(".jpeg")
     if found != 0:

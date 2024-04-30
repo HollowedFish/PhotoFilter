@@ -1,69 +1,84 @@
 from PIL import Image, ImageFilter, ImageEnhance
 
-def red(r=0,image="frog.jpg"):
-    newimagedata=[]
-    while image.getdata():
-        newimagedata.append(r,0,0)
-    newimage=Image.new(image.size,image.mode)
-    newimage.putdata(newimagedata)
-    return newimage
+def red(image):
+    image.convert('RGB')
+    width, height = image.size
+    for x in range(width):
+        for y in range(height):
+            cord1, cord2, r, g, b = image.getpixel((x, y), (red, green, blue))
+            image.putpixel((x, y), (r, 0, 0))
+    return image
 
 
-def blue(b=0,image="frog.jpg"):
-    newimagedata = []
-    while image.getdata():
-        newimagedata.append(0, 0, b)
-    newimage = Image.new(image.size, image.mode)
-    newimage.putdata(newimagedata)
-    return newimage
+def blue(image):
+    image.convert('RGB')
+    width, height = image.size
+    for x in range(width):
+        for y in range(height):
+            cord1, cord2, r, g, b = image.getpixel((x, y), (red, green, blue))
+            image.putpixel((x, y), (0, 0, b))
+    return image
+
+def green(image):
+    image.convert('RGB')
+    width, height = image.size
+    for x in range(width):
+        for y in range(height):
+            cord1, cord2, r, g, b = image.getpixel((x, y), (red, green, blue))
+            image.putpixel((x, y), (0, g, 0))
+    return image
 
 
-def green(g=0,image="frog.jpg"):
-    newimagedata = []
-    while image.getdata():
-        newimagedata.append(0, g, 0)
-    newimage = Image.new(image.size, image.mode)
-    newimage.putdata(newimagedata)
-    return newimage
+def purple(image):
+    image.convert('RGB')
+    width, height = image.size
+    for x in range(width):
+        for y in range(height):
+            cord1, cord2, r, g, b = image.getpixel((x, y), (red, green, blue))
+            r = r*.63
+            g = g*.13
+            b = b*.94
+            image.putpixel((x, y), (r, g, b))
+    return image
 
 
-def purple(r=0,b=0,image="frog.jpg"):
-    newimagedata = []
-    while image.getdata():
-        newimagedata.append(r, 0, b)
-    newimage = Image.new(image.size, image.mode)
-    newimage.putdata(newimagedata)
-    return newimage
+
+def yellow(image):
+    image.convert('RGB')
+    width, height = image.size
+    for x in range(width):
+        for y in range(height):
+            cord1, cord2, r, g, b = image.getpixel((x, y), (red, green, blue))
+            image.putpixel((x, y), (r, g, 0))
+    return image
 
 
-def yellow(g=0,b=0,image="frog.jpg"):
-    newimagedata = []
-    while image.getdata():
-        newimagedata.append(0, g, b)
-    newimage = Image.new(image.size, image.mode)
-    newimage.putdata(newimagedata)
-    return newimage
+def light(image):
+    image.convert('RGB')
+    width, height = image.size
+    lighter = int(input("How much lighter would you like it (Enter number):"))
+    for x in range(width):
+        for y in range(height):
+            cord1, cord2, r, g, b = image.getpixel((x, y), (red, green, blue))
+            r = r-lighter
+            g = g-lighter
+            b = b-lighter
+            image.putpixel((x, y), (r, g, b))
+    return image
 
 
-def light(r=0,g=0,b=0,image="frog.jpg"):
-    lighter=float(input("How much lighter would you like it (Enter number):"))
-    newimagedata = []
-    while image.getdata():
-        newimagedata.append(r-lighter, g-lighter, b-lighter)
-    newimage = Image.new(image.size, image.mode)
-    newimage.putdata(newimagedata)
-    return newimage
-
-
-def dark(r=0,g=0,b=0,image="frog.jpg"):
-    darker=float(input("How dark would you like it (Enter number):"))
-    newimagedata = []
-    while image.getdata():
-        newimagedata.append(r+darker, g+darker, b+darker)
-    newimage = Image.new(image.size, image.mode)
-    newimage.putdata(newimagedata)
-    return newimage
-
+def dark(image):
+    image.convert('RGB')
+    width, height = image.size
+    darker = int(input("How much lighter would you like it (Enter number):"))
+    for x in range(width):
+        for y in range(height):
+            cord1, cord2, r, g, b = image.getpixel((x, y), (red, green, blue))
+            r = r + darker
+            g = g + darker
+            b = b + darker
+            image.putpixel((x, y), (r, g, b))
+    return image
 
 def blur(mod_img):
     value = eval(input("Blur Amount: "))
