@@ -43,35 +43,20 @@ def purple(image):
             image.putpixel((x, y), (r, g, b))
     return image
 def orange(image):
-    image.convert('RGB')
+    image = image.convert('RGB')
     width, height = image.size
     for x in range(width):
         for y in range(height):
             r, g, b = image.getpixel((x, y))
-            g= int(g*.65)
+            g = int(g*.65)
             image.putpixel((x, y), (r, g, 0))
-    return image
-def pink(image):
-    image.convert('RGB')
-    width, height = image.size
-    for x in range(width):
-        for y in range(height):
-            r, g, b = image.getpixel((x, y))
-            r= int(r*.9)
-            g = int(g*.45)
-            b = int(b*.75)
-            image.putpixel((x, y), (r, g, b))
     return image
 def yellow(image):
     image = image.convert('RGB')
     width, height = image.size
     for x in range(width):
         for y in range(height):
-<<<<<<< Updated upstream
             r, g, b = image.getpixel((x, y))
-=======
-            r, g, b = image.getpixel((x, y), (red, green, blue))
->>>>>>> Stashed changes
             image.putpixel((x, y), (r, g, 0))
     return image
 

@@ -80,7 +80,7 @@ def join_filter(image, cropped_image, values):
 
 
 def choose_filter():
-    filters = ["blur", "red", "blue", "green", "purple", "yellow", "orange", "pink", "light", "dark", "sharpness", "contrast", "BW"]
+    filters = ["blur", "red", "blue", "green", "purple", "yellow", "orange", "light", "dark", "sharpness", "contrast", "BW"]
     for (i, filt) in enumerate(filters):
         print("Type " + str(i) + " for " + str(filt))
     choice = input()
@@ -103,16 +103,14 @@ def apply_filter(choice, image):
     elif choice == '6':
         return fl.orange(image)
     elif choice == '7':
-        return fl.pink(image)
-    elif choice == '8':
         return fl.light(image)
-    elif choice == '9':
+    elif choice == '8':
         return fl.dark(image)
-    elif choice == '10':
+    elif choice == '9':
         return fl.sharpness(image)
-    elif choice == '11':
+    elif choice == '10':
         return fl.contrast(image)
-    elif choice == '12':
+    elif choice == '11':
         return fl.bw(image)
     else:
         print("Selection results in an identical image.")
