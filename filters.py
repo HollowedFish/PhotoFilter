@@ -1,4 +1,4 @@
-from PIL import Image, ImageFilter, ImageEnhance
+from PIL import ImageFilter, ImageEnhance
 
 
 def red(image):
