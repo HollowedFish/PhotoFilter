@@ -2,9 +2,8 @@ from PIL import ImageFilter, ImageEnhance
 
 
 def red(image):
-    image.convert('RGB')
+    image = image.convert('RGB')
     width, height = image.size
-    image.load()
     for x in range(width):
         for y in range(height):
             r, g, b = image.getpixel((x, y))
@@ -13,7 +12,7 @@ def red(image):
 
 
 def blue(image):
-    image.convert('RGB')
+    image = image.convert('RGB')
     width, height = image.size
     for x in range(width):
         for y in range(height):
@@ -23,7 +22,7 @@ def blue(image):
 
 
 def green(image):
-    image.convert('RGB')
+    image = image.convert('RGB')
     width, height = image.size
     for x in range(width):
         for y in range(height):
@@ -33,7 +32,7 @@ def green(image):
 
 
 def purple(image):
-    image.convert('RGB')
+    image = image.convert('RGB')
     width, height = image.size
     for x in range(width):
         for y in range(height):
@@ -64,17 +63,21 @@ def pink(image):
             image.putpixel((x, y), (r, g, b))
     return image
 def yellow(image):
-    image.convert('RGB')
+    image = image.convert('RGB')
     width, height = image.size
     for x in range(width):
         for y in range(height):
+<<<<<<< Updated upstream
             r, g, b = image.getpixel((x, y))
+=======
+            r, g, b = image.getpixel((x, y), (red, green, blue))
+>>>>>>> Stashed changes
             image.putpixel((x, y), (r, g, 0))
     return image
 
 
 def light(image):
-    image.convert('RGB')
+    image = image.convert('RGB')
     width, height = image.size
     lighter = int(input("How much lighter would you like it (Enter number):"))
     for x in range(width):
@@ -94,9 +97,9 @@ def light(image):
 
 
 def dark(image):
-    image.convert('RGB')
+    image = image.convert('RGB')
     width, height = image.size
-    darker = int(input("How much lighter would you like it (Enter number):"))
+    darker = int(input("How much darker would you like it (Enter number):"))
     for x in range(width):
         for y in range(height):
             r, g, b = image.getpixel((x, y))
