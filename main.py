@@ -47,6 +47,10 @@ def input_validation(width, height, left, upper, right, lower):
         values[1] = eval(input("Enter an upper value less than or equal to " + str(height)))
     while values[3] > height:
         values[3] = eval(input("Enter a lower value less than or equal to " + str(height)))
+    while values[2] > values[0]:
+        values[2] = eval(input("Right value must be greater than left value "))
+    while values[3] > values[1]:
+        values[3] = eval(input("Lower value must be greater than upper value "))
     return values
 
 
