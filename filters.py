@@ -1,9 +1,10 @@
-from PIL import ImageFilter, ImageEnhance
+from PIL import Image, ImageFilter, ImageEnhance
 
 
 def red(image):
     image.convert('RGB')
     width, height = image.size
+    image.load()
     for x in range(width):
         for y in range(height):
             r, g, b = image.getpixel((x, y))
