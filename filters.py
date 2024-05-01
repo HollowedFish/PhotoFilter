@@ -37,20 +37,38 @@ def purple(image):
     width, height = image.size
     for x in range(width):
         for y in range(height):
-            cord1, cord2, r, g, b = image.getpixel((x, y), (red, green, blue))
-            r = r*.63
-            g = g*.13
-            b = b*.94
+            r, g, b = image.getpixel((x, y))
+            r = int(r*.63)
+            g = int(g*.13)
+            b = int(b*.94)
             image.putpixel((x, y), (r, g, b))
     return image
-
-
+def orange(image):
+    image.convert('RGB')
+    width, height = image.size
+    for x in range(width):
+        for y in range(height):
+            r, g, b = image.getpixel((x, y))
+            g= int(g*.65)
+            image.putpixel((x, y), (r, g, 0))
+    return image
+def pink(image):
+    image.convert('RGB')
+    width, height = image.size
+    for x in range(width):
+        for y in range(height):
+            r, g, b = image.getpixel((x, y))
+            r= int(r*.9)
+            g = int(g*.45)
+            b = int(b*.75)
+            image.putpixel((x, y), (r, g, b))
+    return image
 def yellow(image):
     image.convert('RGB')
     width, height = image.size
     for x in range(width):
         for y in range(height):
-            cord1, cord2, r, g, b = image.getpixel((x, y), (red, green, blue))
+            r, g, b = image.getpixel((x, y))
             image.putpixel((x, y), (r, g, 0))
     return image
 
@@ -63,8 +81,14 @@ def light(image):
         for y in range(height):
             r, g, b = image.getpixel((x, y))
             r = r-lighter
+            if r < 0:
+                r = 0
             g = g-lighter
-            b = b-lighter
+            if g < 0:
+                g = 0
+            b = b - lighter
+            if b < 0:
+                b = 0
             image.putpixel((x, y), (r, g, b))
     return image
 
@@ -76,9 +100,15 @@ def dark(image):
     for x in range(width):
         for y in range(height):
             r, g, b = image.getpixel((x, y))
-            r = r + darker
-            g = g + darker
-            b = b + darker
+            r = r - darker
+            if r > 255:
+                r = 255
+            g = g - darker
+            if g >255:
+                g = 255
+            b = b - darker
+            if b > 255:
+                b = 255
             image.putpixel((x, y), (r, g, b))
     return image
 
